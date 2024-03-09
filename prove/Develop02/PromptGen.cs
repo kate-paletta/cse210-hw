@@ -16,10 +16,10 @@ public class PromptGen
         "What are you grateful for?"
     };
 
-    public void GetRandomPrompt()
+    public string GetRandomPrompt()
     {
         Random random = new Random();
         int _promptPick = random.Next(_prompts.Count);
-        Console.WriteLine(_prompts[_promptPick]);
+        return _prompts[_promptPick];
     }
 }

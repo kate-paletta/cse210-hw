@@ -6,5 +6,8 @@ class Program
     {
         Console.WriteLine("Hello Develop02 World!");
 
+        Entry entry = new Entry();
+        entry.AssignPromptTxt();
+        entry.Display();
     }
 }
