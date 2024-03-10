@@ -2,15 +2,21 @@ using System;
 using System.Collections.Generic;
 public class Journal
 {
-    public List<Entry> _entries;
+    public List<string> _entries = new List<string>();
+    public string _entryItem;
 
-    public void AddEntry(Entry newEntry)
+    public void AddEntry(string prompt, string _userEntry)
     {
-
+        string entry = $"Date: {DateTime.Now.ToShortDateString()} - Prompt: {prompt}\n{_userEntry}";
+        _entries.Add(entry);
     }
+
     public void DisplayAll()
     {
-
+        foreach (string item in _entries)
+        {
+            Console.WriteLine(item);
+        }
     }
     public void SaveToFile(string file)
     {

@@ -2,19 +2,26 @@ using System;
 using System.Collections.Generic;
 public class Entry
 { 
-    public string _date;
+    //getting the date
+    public string _dateTxt;
+    public void GetDate()
+    {
+        _dateTxt = DateTime.Now.ToShortDateString();
+    }
     
-    //getting the prompt and assigning it to _promptTxt
-    public string _promptTxt;
-    public void AssignPromptTxt()
-    {
-        PromptGen prompt = new PromptGen();
-        _promptTxt = prompt.GetRandomPrompt();
-    }
+    //Getting the prompt & entry from Menu
     public string _entryTxt;
-
-    public void Display()
+    public string _promptTxt;
+    public string _completeEntry;
+    
+    public string CompleteEntry()
     {
-        Console.WriteLine($"Date: (date) - Prompt: {_promptTxt}\n(entryTXT)");
+        GetDate();
+        Menu menu = new Menu();
+        _entryTxt = menu._userEntry;
+        _promptTxt = menu._prompt;
+        _completeEntry = $"Date: {_dateTxt} - Prompt: {_promptTxt}\n{_entryTxt}";
+        return _completeEntry;
     }
+
 }
