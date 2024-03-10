@@ -11,23 +11,29 @@ class Program
         while (true)
         {
             entry.DisplayMenu();
-            int choice = entry.GetUserChoice();
-            if (choice == 1)
+            int _choice = entry.GetUserChoice();
+            if (_choice == 1)
             {
                 entry.GetPromptAndEntry();
                 journal.AddEntry(entry.CompleteEntry());
             }
-            else if (choice == 2)
+            else if (_choice == 2)
             {
                 journal.DisplayAll();
             }
-            else if (choice == 3)
+            else if (_choice == 3)
             {
                 //load method
+                Console.WriteLine("Please type the name of the file to load from: ");
+                string file = Console.ReadLine();
+                journal.LoadFromFile(file);
             }
-            else if (choice == 4)
+            else if (_choice == 4)
             {
                 //save method
+                Console.WriteLine("Please type the name of the file to save to: ");
+                string file = Console.ReadLine();
+                journal.SaveToFile(file);
             }
             else
             {
