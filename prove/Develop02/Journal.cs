@@ -4,10 +4,8 @@ public class Journal
 {
     public List<string> _entries = new List<string>();
     public string _entryItem;
-
-    public void AddEntry(string prompt, string _userEntry)
+    public void AddEntry(string entry)
     {
-        string entry = $"Date: {DateTime.Now.ToShortDateString()} - Prompt: {prompt}\n{_userEntry}";
         _entries.Add(entry);
     }
 

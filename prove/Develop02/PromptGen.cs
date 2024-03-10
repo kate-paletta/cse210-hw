@@ -15,10 +15,9 @@ public class PromptGen
         "Did you have a scripture that stuck out to you this week of Come Follow Me?",
         "What are you grateful for?"
     };
-
+    Random random = new Random();
     public string GetRandomPrompt()
     {
-        Random random = new Random();
         int _promptPick = random.Next(_prompts.Count);
         return _prompts[_promptPick];
     }
