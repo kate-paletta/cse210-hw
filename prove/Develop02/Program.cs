@@ -35,6 +35,10 @@ class Program
                 string file = Console.ReadLine();
                 journal.SaveToFile(file);
             }
+            else if (_choice >= 6)
+            {
+                Console.WriteLine("Please enter a valid option.");
+            }
             else
             {
                 break;
