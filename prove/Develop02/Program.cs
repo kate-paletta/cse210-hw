@@ -37,6 +37,7 @@ class Program
             }
             else if (_choice >= 6)
             {
+                //EXTRA: this is so the program doesn't stop running if a user puts in a number that is over 5
                 Console.WriteLine("Please enter a valid option.");
             }
             else
