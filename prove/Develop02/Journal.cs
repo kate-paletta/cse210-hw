@@ -3,39 +3,53 @@ using System.Collections.Generic;
 using System.IO;
 public class Journal
 {
-    public List<string> _entries = new List<string>();
-    public string _entryItem;
-    public void AddEntry(string entry)
+    public List<Entry> _entries = new();
+    public PromptGen _pgen = new();
+
+    public void AddEntry()
     {
+        Entry entry = new();
+        entry._dateTxt = DateTime.Now.ToShortDateString();
+        entry._prompt = _pgen.GetRandomPrompt();
+        Console.WriteLine(entry._prompt);
+        entry._userEntry = Console.ReadLine();
         _entries.Add(entry);
     }
 
     public void DisplayAll()
     {
-        foreach (string item in _entries)
+        foreach (Entry item in _entries)
         {
-            Console.WriteLine(item);
+            Console.WriteLine(item.DisplayEntry());
         }
     }
+    
     public void SaveToFile(string file)
     {
         using (StreamWriter writer = new StreamWriter(file))
         {
-            foreach (string entry in _entries)
+            foreach (Entry entry in _entries)
             {
-                writer.WriteLine(entry);
+                writer.WriteLine($"{entry._dateTxt}|{entry._prompt}|{entry._userEntry}");
             }
             Console.WriteLine("Journal saved to file successfully.");
         }
     }
+
     public void LoadFromFile(string file)
     {
+        _entries.Clear();
         using (StreamReader reader = new StreamReader(file))
         {
             string line;
             while ((line = reader.ReadLine()) != null)
             {
-                _entries.Add(line);
+                string[] parts = line.Split("|");
+                Entry entry = new();
+                entry._dateTxt = parts[0];
+                entry._prompt = parts[1];
+                entry._userEntry = parts[2];
+                _entries.Add(entry);
             }
         }
         Console.WriteLine("Journal loaded from file successfully.");
