@@ -3,25 +3,26 @@ using System.Collections.Generic;
 
 public class Word
 {
-    //Variables
     private string _text;
     private bool _isHidden;
 
-    //Methods
+    public Word(string text)
+    {
+        _text = text;
+    }
+
     public void Hide()
     {
+        _isHidden = true;
+    }
 
-    }
-    public void Show()
-    {
-
-    }
-    public bool IsHidden()
-    {
-        //return
-    }
     public string GetDisplayTxt()
     {
-        //return
+        return _isHidden ? new string('_', _text.Length) : _text;
+    }
+
+    public bool IsHidden()
+    {
+        return _isHidden;
     }
 }

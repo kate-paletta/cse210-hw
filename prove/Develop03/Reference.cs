@@ -3,14 +3,15 @@ using System.Collections.Generic;
 
 public class Reference
 {
-    //Variables
-    private string _book;
-    private int _chapter;
-    private int _verse;
-    private int _endVerse;
+    private string _reference;
+
+    public Reference(string reference)
+    {
+        _reference = reference;
+    }
 
     public string GetDisplayTxt()
     {
-        //return
+        return _reference;
     }
 }
