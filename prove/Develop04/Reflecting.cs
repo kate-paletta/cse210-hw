@@ -5,7 +5,7 @@ public class Reflecting : Activity
 {
     private List<string> _prompts = new();
     private List<string> _questions = new();
-    public Reflecting()
+    public Reflecting(string name, string description, int duration) : base(name, description, duration)
     {
 
     }
@@ -15,11 +15,11 @@ public class Reflecting : Activity
     }
     public string GetRandomPrompt()
     {
-        //return
+        return "";
     }
     public string GetRandomWQuestion()
     {
-        //return
+        return "";
     }
     public void DisplayPrompt()
     {

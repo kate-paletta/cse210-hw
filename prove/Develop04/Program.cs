@@ -4,6 +4,12 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop04 World!");
+        
+        Breathe breathe1 = new("Breathing", "Descript", 10);
+
+        // Activity activity1 = new();
+        breathe1.StartMessage();
+        breathe1.ShowSpinner();
+        breathe1.EndMessage();
     }
 }

@@ -4,8 +4,8 @@ using System.IO;
 public class Listing : Activity
 {
     private int _count;
-    List<string> _prompts = new();
-    public Listing()
+    private List<string> _prompts = new();
+    public Listing(string name, string description, int duration) : base(name, description, duration)
     {
 
     }
