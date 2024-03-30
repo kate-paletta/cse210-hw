@@ -4,18 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        Square square = new();
-        square.SetColor("Blue");
-        square.SetSide(2);
+        Square square = new("Blue", 4);
+        
 
-        Rectangle rectangle = new();
-        rectangle.SetColor("Pink");
-        rectangle.SetLength(3);
-        rectangle.SetWidth(2);
+        Rectangle rectangle = new("Yellow", 3, 2);
 
-        Circle circle = new();
-        circle.SetColor("Green");
-        circle.SetRadius(4);
+        Circle circle = new("Green", 2);
+        
 
         List<Shape> shapes = new List<Shape>();
         shapes.Add(square);
