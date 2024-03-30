@@ -33,9 +33,6 @@ public class Activity
             Console.Write(".");
             Thread.Sleep(1000);
 
-
-
-            
         }
     }
     public void CountDown(int seconds)
