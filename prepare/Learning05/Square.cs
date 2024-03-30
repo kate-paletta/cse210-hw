@@ -1,6 +1,15 @@
 public class Square : Shape
 {
-    private int _side;
+    private double _side;
+
+    public double GetSide()
+    {
+        return _side;
+    }
+    public void SetSide(double side)
+    {
+        side = _side;
+    }
 
     public override double GetArea()
     {
