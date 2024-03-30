@@ -24,6 +24,12 @@ public class Simple : Goal
     public override string GetGoalDetails()
     {
         //provide all details of goal in a way to save and load
-        return "";
+        Console.Write("What is the name of your goal?");
+        _shortName = Console.ReadLine();
+        Console.Write("Please describe your goal: ");
+        _description = Console.ReadLine();
+        Console.Write("How many points will you earn when completed?");
+        _points = int.Parse(Console.ReadLine());
+        return $"SimpleGoal:{_shortName} | {_description} | {_points} | {_isComplete}";
     }
 }
