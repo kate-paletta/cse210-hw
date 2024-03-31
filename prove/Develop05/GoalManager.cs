@@ -23,8 +23,9 @@ public class GoalManager
             Console.WriteLine("1. Create New Goal");
             Console.WriteLine("2. List Goals");
             Console.WriteLine("3. Save Goals");
-            Console.WriteLine("4. Record Event");
-            Console.WriteLine("5. Quit");
+            Console.WriteLine("4. Load Goals");
+            Console.WriteLine("5. Record Event");
+            Console.WriteLine("6. Quit");
             Console.Write("Select an option: ");
             _userChoice = int.Parse(Console.ReadLine());
 
@@ -78,10 +79,24 @@ public class GoalManager
 
         _goalType = int.Parse(Console.ReadLine());
 
-        Goal _newGoal;
+        
         if (_goalType == 1)
         {
-            _newGoal = Simple(name, )
+            Simple simple = new("","",0);
+            simple.GetGoalDetails();
+            goals.Add(simple);
+        }
+        else if (_goalType == 2)
+        {
+            Eternal eternal = new("","",0);
+            eternal.GetGoalDetails();
+            goals.Add(eternal);
+        }
+        else if (_goalType == 3)
+        {
+            Checklist checklist = new("","",0);
+            checklist.GetGoalDetails();
+            goals.Add(checklist);
         }
 
         

@@ -9,6 +9,7 @@ public class Simple : Goal
         _shortName = name;
         _description = description;
         _points = points;
+        _isComplete = false;
     }
     public override void RecordEvent()
     {
