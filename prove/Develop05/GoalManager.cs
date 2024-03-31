@@ -36,6 +36,10 @@ public class GoalManager
             else if (_userChoice == 2)
             {
                 //list goals
+                foreach (var goal in goals)
+                {
+                    Console.WriteLine(goal);
+                }
             }
             else if (_userChoice ==3)
             {
@@ -45,7 +49,11 @@ public class GoalManager
             {
                 LoadGoals();
             }
-            else if (_userChoice == 5)
+            else if (_userChoice ==5)
+            {
+                RecordEvent();
+            }
+            else if (_userChoice == 6)
             {
                 break;
             }
@@ -64,6 +72,7 @@ public class GoalManager
     public void ListShortName()
     {
         //stores short name
+
     }
     public void ListDetails()
     {
@@ -72,7 +81,7 @@ public class GoalManager
     public void CreateGoal()
     {
         //asks user for info about new goal adds to list
-        Console.Write("Select goal type:");
+        Console.WriteLine("Select goal type:");
         Console.WriteLine("1. Simple");
         Console.WriteLine("2. Eternal");
         Console.WriteLine("3. Checklist");

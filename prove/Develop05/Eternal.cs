@@ -21,11 +21,11 @@ public class Eternal : Goal
     public override string GetGoalDetails()
     {
         //provide all details of goal in a way to save and load
-        Console.Write("What is the name of your goal?");
+        Console.Write("What is the name of your goal? ");
         _shortName = Console.ReadLine();
         Console.Write("Please describe your goal: ");
         _description = Console.ReadLine();
-        Console.Write("How many points will you earn when completed?");
+        Console.Write("How many points will you earn when completed? ");
         _points = int.Parse(Console.ReadLine());
         return $"EternalGoal:{_shortName} | {_description} | {_points}";
     }
