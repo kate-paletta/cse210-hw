@@ -3,81 +3,28 @@ public class GoalManager
 {
     private List<Goal> goals = new();
     private int _score;
-    private int _userChoice;
-    private int _goalType;
+
     public GoalManager()
     {
        _score = 0;
        //list empty
 
     }
-
-    public void Start()
-    {
-        //runs the menu loop
-        while (_userChoice != 5)
-        {
-            DisplayScore();
-            Console.WriteLine(" ");
-            Console.WriteLine("Menu Options:");
-            Console.WriteLine("1. Create New Goal");
-            Console.WriteLine("2. List Goals");
-            Console.WriteLine("3. Save Goals");
-            Console.WriteLine("4. Load Goals");
-            Console.WriteLine("5. Record Event");
-            Console.WriteLine("6. Quit");
-            Console.Write("Select an option: ");
-            _userChoice = int.Parse(Console.ReadLine());
-
-            if (_userChoice == 1)
-            {
-                CreateGoal();
-            }
-            else if (_userChoice == 2)
-            {
-                //list goals
-                foreach (var goal in goals)
-                {
-                    Console.WriteLine(goal);
-                }
-            }
-            else if (_userChoice ==3)
-            {
-                SaveGoals();
-            }
-            else if (_userChoice == 4)
-            {
-                LoadGoals();
-            }
-            else if (_userChoice ==5)
-            {
-                RecordEvent();
-            }
-            else if (_userChoice == 6)
-            {
-                break;
-            }
-            else
-            {
-                Console.WriteLine("Please enter a valid option");
-            }
-
-        }
-    }
-    public void DisplayScore()
+  
+    public string DisplayScore()
     {
         //shows current score
-        Console.WriteLine($"You have {_score} points");
+        return $"You have {_score} points";
     }
-    public void ListShortName()
-    {
-        //stores short name
 
-    }
-    public void ListDetails()
+    public void DisplayGoals()
     {
-        //includes checkbox if completed
+        // counter -> 1
+        // FOREACH goal in goals
+        //      PUT counter) goal.GetDetailsString()
+        //      counter++
     }
+
     public void CreateGoal()
     {
         //asks user for info about new goal adds to list
@@ -86,37 +33,52 @@ public class GoalManager
         Console.WriteLine("2. Eternal");
         Console.WriteLine("3. Checklist");
 
-        _goalType = int.Parse(Console.ReadLine());
+        int goalType = int.Parse(Console.ReadLine());
 
-        
-        if (_goalType == 1)
+        Console.Write("What is the name of your goal? ");
+        string shortName = Console.ReadLine();
+        Console.Write("Please describe your goal: ");
+        string description = Console.ReadLine();
+        Console.Write("How many points will you earn when completed? ");
+        int points = int.Parse(Console.ReadLine());
+
+        switch (goalType)
         {
-            Simple simple = new("","",0);
-            simple.GetGoalDetails();
-            goals.Add(simple);
-        }
-        else if (_goalType == 2)
-        {
-            Eternal eternal = new("","",0);
-            eternal.GetGoalDetails();
-            goals.Add(eternal);
-        }
-        else if (_goalType == 3)
-        {
-            Checklist checklist = new("","",0);
-            checklist.GetGoalDetails();
-            goals.Add(checklist);
+            case 1: 
+                Simple simple = new(shortName, description, points);
+                simple.GetGoalDetails();
+                goals.Add(simple);
+                break;
+            case 2:
+                Eternal eternal = new(shortName, description, points);
+                eternal.GetGoalDetails();
+                goals.Add(eternal);
+                break;
+            case 3:
+                Console.Write("What is the target amount to complete the goal? ");
+                int baseAmnt = int.Parse(Console.ReadLine());
+                Console.Write("When you've completed all of your tasks how many points would like to earn? ");
+                int bonus = int.Parse(Console.ReadLine());
+                Checklist checklist = new(shortName, description, points, baseAmnt, bonus);
+                goals.Add(checklist);
+                break;
+            default:
+                Console.WriteLine("Invalid input");
+                break;
         }
 
         
     }
     public void RecordEvent()
     {
-        //asks user which goal they have done call RecordEvent method
+        // DisplayGoal()
+        // PUT Select a goal
+        // choice -> GET
+        // _score += goals[choice - 1].RecordEvent()
     }
     public void SaveGoals()
     {
-
+        
     }
     public void LoadGoals()
     {

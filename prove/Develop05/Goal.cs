@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 public abstract class Goal
 {
     //VARIABLES
@@ -14,12 +16,25 @@ public abstract class Goal
     }
 
     //METHODS
-    public abstract void RecordEvent();
-    public abstract bool IsComplete();
-    public string GetDetailsString()
+    public abstract int RecordEvent();
+
+    private char GetIsCompleteChar()
     {
-        return "";
-        //this should read through the list and format it to display
+        // TENARY OPERATOR
+        //     CONDITION ? TRUE : FALSE
+        return IsComplete() ? 'X' : ' ';
     }
-    public abstract string GetGoalDetails();
+    public virtual string GetDetailsString()
+    {
+        return $"[{GetIsCompleteChar()}] {_shortName} - {_description}";
+    }
+    public virtual string GetSaveString()
+    {
+        return $"{GetType()}|{_shortName}|{_description}|{_points}";
+    }
+
+    public virtual bool IsComplete()
+    {
+        return false;
+    }
 }

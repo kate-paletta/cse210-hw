@@ -5,32 +5,30 @@ public class Simple : Goal
     private bool _isComplete;
     public Simple(string name, string description, int points) : base (name, description, points)
     {
-        //set _isComplete here
-        _shortName = name;
-        _description = description;
-        _points = points;
         _isComplete = false;
     }
-    public override void RecordEvent()
+
+    public Simple(string name, string description, int points, bool isComplete) : base (name, description, points)
     {
-        //mark complete
-        //add points
+        _isComplete = isComplete;
+    }
+
+    public override int RecordEvent()
+    {
+        // _isComplete -> TRUE
+        // PUT Message
+        // RETURN _points
     }
     public override bool IsComplete()
     {
         //return true if goal is completed
         //determine if a goal is complete depending on the goal type
-        return true;
+        return _isComplete;
     }
-    public override string GetGoalDetails()
+    public override string GetSaveString()
     {
         //provide all details of goal in a way to save and load
-        Console.Write("What is the name of your goal? ");
-        _shortName = Console.ReadLine();
-        Console.Write("Please describe your goal: ");
-        _description = Console.ReadLine();
-        Console.Write("How many points will you earn when completed? ");
-        _points = int.Parse(Console.ReadLine());
-        return $"SimpleGoal:{_shortName} | {_description} | {_points} | {_isComplete}";
+        
+        return base.GetSaveString() + $"|{_isComplete}";
     }
 }
